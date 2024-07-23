@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
     vb.vm.provider :virtualbox
     (1..5).each do |i|
       vb.vm.disk :disk, size: "250MB", name: "disk-#{i}"
+    end
       vb.vm.provision "shell", inline: <<-SHELL
       mkdir -p ~root/.ssh
             cp ~vagrant/.ssh/auth* ~root/.ssh
@@ -23,4 +24,3 @@ Vagrant.configure("2") do |config|
     SHELL
     end
   end
-end
